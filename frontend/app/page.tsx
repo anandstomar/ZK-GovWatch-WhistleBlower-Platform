@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Shield, Lock, Zap, Eye, Database, Globe, ChevronRight, Wallet, Server } from "lucide-react";
+import { Shield, Lock, Zap, Eye, Database, Globe, ChevronRight, Wallet, Server, CheckCircle } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -17,6 +17,10 @@ export default function LandingPage() {
             <Link href="#features" className="hover:text-white transition-colors">Features</Link>
             <Link href="#how-it-works" className="hover:text-white transition-colors">How it Works</Link>
             <Link href="/verify" className="hover:text-white transition-colors">Live Dashboard</Link>
+            {/* NEW: Direct Link to Claim Tool */}
+            <Link href="/claim" className="text-green-400 hover:text-green-300 transition-colors flex items-center gap-1">
+               <Wallet className="w-4 h-4" /> Claim Rewards
+            </Link>
           </div>
           <Link href="/submit">
             <button className="bg-white text-slate-950 px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-50 transition-transform hover:scale-105">
@@ -62,6 +66,14 @@ export default function LandingPage() {
                 </button>
               </Link>
             </div>
+
+            {/* NEW: Tertiary Link for Returning Users */}
+            <div className="mt-8">
+                <Link href="/claim" className="text-slate-500 hover:text-white text-sm flex items-center justify-center gap-2 transition-colors">
+                    <CheckCircle className="w-4 h-4" /> Already have a key? <span className="underline decoration-slate-700 underline-offset-4">Redeem your reward here</span>
+                </Link>
+            </div>
+
           </motion.div>
         </div>
       </section>
@@ -93,7 +105,7 @@ export default function LandingPage() {
       <section id="how-it-works" className="py-24 border-t border-slate-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white">The Privacy Protocol</h2>
+            <h2 className="text-3xl font-bold text-white">The Privacy Protocol </h2>
             <p className="text-slate-400 mt-4">How we protect you from start to finish.</p>
           </div>
 
@@ -104,7 +116,8 @@ export default function LandingPage() {
             <StepCard number="01" title="Register" desc="Generate a ZK Identity. Join your organization's anonymity set." link="/submit" />
             <StepCard number="02" title="Prove" desc="Generate a proof locally in your browser. Encrypt evidence for the admin." link="/submit" />
             <StepCard number="03" title="Verify" desc="The Relayer submits your proof. The contract verifies it on-chain." link="/verify" />
-            <StepCard number="04" title="Withdraw" desc="Use your secret key to withdraw rewards to a fresh wallet." link="/vault" />
+            {/* UPDATED LINK: Pointing directly to Claim page now */}
+            <StepCard number="04" title="Withdraw" desc="Use your secret key to withdraw rewards to a fresh wallet." link="/claim" />
           </div>
         </div>
       </section>
